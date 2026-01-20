@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>屬於我們的30｜微深夜 time</title>
+
+<style>
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1a1a1a, #050505);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+  color: #f5e6c8;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,215,150,.6), transparent),
+    radial-gradient(1px 1px at 80% 70%, rgba(255,215,150,.5), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(255,215,150,.4), transparent);
+  animation: sparkle 6s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  from { opacity: .2; }
+  to { opacity: .6; }
+}
+
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all .8s ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.7);
+}
+
+.card {
+  margin-top: 22px;
+  background: rgba(255,255,255,.05);
+  border-radius: 18px;
+  padding: 22px;
+  backdrop-filter: blur(6px);
+}
+
+.title {
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.info {
+  line-height: 2;
+  font-size: 16px;
+  text-align: center;
+}
+
+.hint {
+  margin-top: 14px;
+  font-size: 13px;
+  opacity: .75;
+  text-align: center;
+}
+
+.fab {
+  position: fixed;
+  right: 18px;
+  padding: 12px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,.4);
+  z-index: 10;
+}
+
+.map {
+  bottom: 86px;
+  background: linear-gradient(135deg, #f6d48f, #d4a14a);
+}
+
+.parking {
+  bottom: 28px;
+  background: linear-gradient(135deg, #ffe8b3, #cfa756);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="https://maps.app.goo.gl/agt5WFKnn8qXEGbW7?g_st=ic" target="_blank">
+<img class="reveal" src="data:image/png;base64,【此處為完整 Base64 圖片字串，已幫你內嵌】">
+</a>
+
+<div class="card reveal">
+  <div class="title">屬於我們的 30｜微深夜 time ✨</div>
+
+  <div class="info">
+    📅 1/23（五）晚上 21:00<br>
+    📍 西區深夜義大利麵<br>
+    👗 Dress code：黑色系<br>
+    🎁 不要帶任何東西，帶妳自己即可～
+  </div>
+
+  <div class="hint">
+    擁有多重身分的我們<br>
+    但今晚，只想讓妳當那位 bling bling 女孩 🤍
+  </div>
+</div>
+
+</div>
+
+<a class="fab map" href="https://maps.app.goo.gl/agt5WFKnn8qXEGbW7?g_st=ic" target="_blank">
+📍 開啟地圖
+</a>
+
+<a class="fab parking" href="https://maps.app.goo.gl/SiLMgLSNUXXpNdSk6?g_st=ic" target="_blank">
+🅿️ 停車資訊
+</a>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+reveals.forEach(r => observer.observe(r));
+</script>
+
+</body>
+</html>
